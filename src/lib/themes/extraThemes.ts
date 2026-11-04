@@ -1,0 +1,351 @@
+import { ThemeDefinition } from '../types';
+
+type Theme = Omit<ThemeDefinition, 'frameStyle'> & { frameStyle?: ThemeDefinition['frameStyle'] };
+
+const PACIFICO = '36px Pacifico';
+const FREDOKA = '600 38px Fredoka';
+const CAVEAT = '700 46px Caveat';
+const BANGERS = '36px Bangers';
+
+const GIRLY = 'Imut & Girly';
+const FUNNY = 'Lucu & Kocak';
+
+const themes: Theme[] = [
+  // Imut & Girly
+  {
+    id: 'pita-pink', name: 'Pita Pink', category: GIRLY, decor: 'ribbon',
+    description: 'Pita besar dan motif pita kecil di atas pink lembut.',
+    bgColor: '#FFD9E4', inkColor: '#A32255', accentColor: '#FF7DA8',
+    filterCss: 'brightness(1.07) saturate(1.1) contrast(0.98)',
+    frameInset: 58, photoRadius: 22, photoGap: 34, photoBorder: { color: '#FFFFFF', width: 7 },
+    plateColor: '#FFF0F5', captionFont: PACIFICO, badgeText: 'SWEET BOW',
+    stickers: ['🎀', '💗', '🌸', '🩰', '💌', '🧸'],
+  },
+  {
+    id: 'hati-bubblegum', name: 'Hati Bubblegum', category: GIRLY, decor: 'hearts',
+    description: 'Pink terang penuh hati, dengan hati besar di sudut setiap foto.',
+    bgColor: '#FF8DC4', inkColor: '#7A0A44', accentColor: '#FF3D8F',
+    filterCss: 'brightness(1.06) saturate(1.2)',
+    frameInset: 50, photoRadius: 26, photoBorder: { color: '#FFFFFF', width: 7 },
+    plateColor: '#FFE3F1', captionFont: PACIFICO, badgeText: 'BESTIE FOREVER',
+    stickers: ['💖', '💕', '💘', '💋', '🫶', '✨'],
+  },
+  {
+    id: 'kucing-manis', name: 'Kucing Manis', category: GIRLY, decor: 'catEars',
+    description: 'Setiap foto punya telinga dan kaki kucing putih.',
+    bgColor: '#FFF1F5', inkColor: '#B23A6B', accentColor: '#FFA9C4',
+    filterCss: 'brightness(1.06) saturate(1.08) contrast(0.98)',
+    frameInset: 52, photoRadius: 28, photoGap: 62, photoBorder: { color: '#FFFFFF', width: 6 },
+    plateColor: '#FFFFFF', captionFont: FREDOKA, badgeText: 'MEOW MEOW',
+    stickers: ['🐱', '🐾', '🎀', '🐟', '🌸', '🥛'],
+  },
+  {
+    id: 'kelinci-mochi', name: 'Kelinci Mochi', category: GIRLY, decor: 'bunnyEars',
+    description: 'Telinga kelinci panjang di atas foto, latar lavender berkilau.',
+    bgColor: '#E9DDFF', inkColor: '#5B3DA8', accentColor: '#B79BFF',
+    filterCss: 'brightness(1.07) saturate(1.05) contrast(0.97)',
+    frameInset: 54, photoRadius: 28, photoGap: 62, photoBorder: { color: '#FFFFFF', width: 6 },
+    plateColor: '#FFFFFF', captionFont: FREDOKA, badgeText: 'BUNNY HOP',
+    stickers: ['🐰', '🥕', '🌷', '🫧', '💜', '🍡'],
+  },
+  {
+    id: 'beruang-cokelat', name: 'Beruang Cokelat', category: GIRLY, decor: 'teddy',
+    description: 'Warna milk tea dan beruang kecil yang mengintip dari foto.',
+    bgColor: '#EAD6BC', inkColor: '#6B4426', accentColor: '#B98858',
+    filterCss: 'brightness(1.04) saturate(0.98) sepia(0.1)',
+    frameInset: 52, photoRadius: 24, photoGap: 44, photoBorder: { color: '#FFF8EE', width: 6 },
+    plateColor: '#F7EBDA', captionFont: FREDOKA, badgeText: 'TEDDY TIME',
+    stickers: ['🧸', '🍯', '🤎', '☕', '🍪', '🎀'],
+  },
+  {
+    id: 'ceri-manis', name: 'Ceri Manis', category: GIRLY, decor: 'cherry',
+    description: 'Kain kotak pink dengan ceri merah dan pita di setiap foto.',
+    bgColor: '#FFFFFF', inkColor: '#B5163F', accentColor: '#E8325F',
+    filterCss: 'brightness(1.05) saturate(1.16)',
+    frameInset: 54, photoRadius: 14, photoShape: 'scallop', photoGap: 34, photoBorder: { color: '#FFFFFF', width: 6 },
+    plateColor: '#FFFFFF', captionFont: PACIFICO, badgeText: 'CHERRY ON TOP',
+    stickers: ['🍒', '🎀', '💋', '🍰', '🌹', '💝'],
+  },
+  {
+    id: 'kupu-lilac', name: 'Kupu-Kupu Lilac', category: GIRLY, decor: 'butterflyLilac',
+    description: 'Kupu-kupu Y2K warna-warni di atas gradasi lilac.',
+    bgColor: '#E7C8FF', inkColor: '#4C2A8C', accentColor: '#FF97DF',
+    filterCss: 'brightness(1.06) saturate(1.14) hue-rotate(-6deg)',
+    frameInset: 54, photoRadius: 20, photoBorder: { color: '#FFFFFF', width: 5 },
+    plateColor: 'rgba(255,255,255,0.8)', captionFont: PACIFICO, badgeText: 'FLY WITH ME',
+    stickers: ['🦋', '💜', '🌸', '✨', '💎', '🪻'],
+  },
+  {
+    id: 'bintang-glitter', name: 'Bintang Glitter', category: GIRLY, decor: 'glitterStar',
+    description: 'Hologram pink dan biru dengan bintang yang berkilau.',
+    bgColor: '#C7A6FF', inkColor: '#3E1D73', accentColor: '#FFE45C',
+    filterCss: 'brightness(1.08) saturate(1.2) contrast(1.02)',
+    frameInset: 50, photoRadius: 16, photoBorder: { color: '#FFFFFF', width: 5 },
+    plateColor: 'rgba(255,255,255,0.78)', captionFont: FREDOKA, badgeText: 'SO Y2K',
+    stickers: ['⭐', '🌟', '💫', '✨', '💿', '🪩'],
+  },
+  {
+    id: 'putri-mahkota', name: 'Putri Mahkota', category: GIRLY, decor: 'princess',
+    description: 'Foto bentuk oval dan mahkota emas, seperti potret putri.',
+    bgColor: '#F1E0FF', inkColor: '#7A4A12', accentColor: '#E9BE52',
+    filterCss: 'brightness(1.07) saturate(1.05) contrast(0.98)',
+    frameInset: 52, photoShape: 'oval', photoGap: 26, photoBorder: { color: '#E9BE52', width: 6 },
+    plateColor: '#FFF7E2', captionFont: PACIFICO, badgeText: 'ROYAL BESTIES',
+    stickers: ['👑', '💎', '🏰', '🦄', '🪄', '🌹'],
+  },
+  {
+    id: 'daisy-kuning', name: 'Daisy Kuning', category: GIRLY, decor: 'daisyField',
+    description: 'Bunga daisy di atas kotak kuning mentega, foto bentuk lengkung.',
+    bgColor: '#FFF2AE', inkColor: '#6B5400', accentColor: '#FFC928',
+    filterCss: 'brightness(1.06) saturate(1.1) sepia(0.05)',
+    frameInset: 56, photoShape: 'arch', photoGap: 26, photoBorder: { color: '#FFFFFF', width: 7 },
+    plateColor: '#FFFBE3', captionFont: CAVEAT, badgeText: 'DAISY DAYS',
+    stickers: ['🌼', '🌻', '🐝', '☀️', '🍋', '💛'],
+  },
+  {
+    id: 'awan-pelangi', name: 'Awan Pelangi', category: GIRLY, decor: 'rainbowCloud',
+    description: 'Pelangi pastel dan awan lembut di atas foto.',
+    bgColor: '#E5ECFF', inkColor: '#3A4A86', accentColor: '#8FD3FF',
+    filterCss: 'brightness(1.08) saturate(1.1) contrast(0.97)',
+    frameInset: 54, photoRadius: 30, photoBorder: { color: '#FFFFFF', width: 7 },
+    plateColor: 'rgba(255,255,255,0.82)', captionFont: FREDOKA, badgeText: 'OVER THE RAINBOW',
+    stickers: ['🌈', '☁️', '🦄', '💧', '🫧', '🩵'],
+  },
+  {
+    id: 'permen-manis', name: 'Permen Manis', category: GIRLY, decor: 'candyStripe',
+    description: 'Garis permen pink dengan lolipop besar di sudut atas.',
+    bgColor: '#FFFFFF', inkColor: '#B51E6B', accentColor: '#FF5FA8',
+    filterCss: 'brightness(1.06) saturate(1.22)',
+    frameInset: 54, photoRadius: 22, photoBorder: { color: '#FFFFFF', width: 8 },
+    plateColor: '#FFFFFF', captionFont: FREDOKA, badgeText: 'SUGAR RUSH',
+    stickers: ['🍭', '🍬', '🧁', '🍩', '💗', '🌈'],
+  },
+  {
+    id: 'boba-susu', name: 'Boba Susu', category: GIRLY, decor: 'bobaMilk',
+    description: 'Warna teh susu, butiran boba, dan gelas boba yang tersenyum.',
+    bgColor: '#E9D2B8', inkColor: '#5A3620', accentColor: '#8A5A3C',
+    filterCss: 'brightness(1.04) saturate(1.02) sepia(0.12)',
+    frameInset: 56, photoRadius: 26, photoBorder: { color: '#FFF8EE', width: 6 },
+    plateColor: '#FFF8EE', captionFont: FREDOKA, badgeText: 'LESS SUGAR PLEASE',
+    stickers: ['🧋', '🤎', '☕', '🍮', '🍡', '🧸'],
+  },
+
+  // Lucu & Kocak
+  {
+    id: 'kucing-oren', name: 'Kucing Oren', category: FUNNY, decor: 'orangeCat',
+    description: 'Belang oren, telinga kucing, dan si oren yang ikut nongol di foto.',
+    bgColor: '#F7A041', inkColor: '#4A2400', accentColor: '#D9771F',
+    filterCss: 'brightness(1.04) saturate(1.16) sepia(0.06)',
+    frameInset: 52, photoRadius: 22, photoGap: 62, photoBorder: { color: '#FFF3E0', width: 6 },
+    plateColor: '#FFE9CE', captionFont: FREDOKA, badgeText: 'SI OREN NAKAL',
+    stickers: ['🐈', '🐟', '🐾', '😼', '🧡', '🥫'],
+  },
+  {
+    id: 'dino-hijau', name: 'Dino Hijau', category: FUNNY, decor: 'dino',
+    description: 'Kulit dino bersisik, duri kuning, dan dino kecil yang mengintip.',
+    bgColor: '#86D16E', inkColor: '#143F0C', accentColor: '#FFD84D',
+    filterCss: 'brightness(1.04) saturate(1.18)',
+    frameInset: 56, photoRadius: 18, photoGap: 44, photoBorder: { color: '#2E7A1F', width: 5 },
+    plateColor: '#E2F7D6', captionFont: FREDOKA, badgeText: 'RAWR RAWR',
+    stickers: ['🦖', '🦕', '🥚', '🌋', '🌿', '💚'],
+  },
+  {
+    id: 'bebek-kuning', name: 'Bebek Kuning', category: FUNNY, decor: 'duckPond',
+    description: 'Bebek karet berenang di kolam biru, satu di setiap foto.',
+    bgColor: '#A8E2FF', inkColor: '#0B4A6F', accentColor: '#FFD93B',
+    filterCss: 'brightness(1.06) saturate(1.12)',
+    frameInset: 52, photoRadius: 22, photoBorder: { color: '#FFFFFF', width: 6 },
+    plateColor: '#E6F7FF', captionFont: FREDOKA, badgeText: 'KWEK KWEK',
+    stickers: ['🦆', '🛁', '💦', '🫧', '🌊', '💛'],
+  },
+  {
+    id: 'panda-bambu', name: 'Panda Bambu', category: FUNNY, decor: 'panda',
+    description: 'Telinga panda di setiap foto dan bambu di kedua sisi.',
+    bgColor: '#F4F8EC', inkColor: '#1E1E20', accentColor: '#6FB05B',
+    filterCss: 'brightness(1.05) contrast(1.04) saturate(1.05)',
+    frameInset: 56, photoRadius: 24, photoGap: 44, photoBorder: { color: '#1E1E20', width: 4 },
+    plateColor: '#FFFFFF', captionFont: FREDOKA, badgeText: 'NGANTUK TERUS',
+    stickers: ['🐼', '🎋', '🍃', '😴', '🖤', '🍙'],
+  },
+  {
+    id: 'katak-teratai', name: 'Katak Teratai', category: FUNNY, decor: 'frogPond',
+    description: 'Mata katak mengintip di atas foto, daun teratai di sekelilingnya.',
+    bgColor: '#74C7A6', inkColor: '#0F3F2C', accentColor: '#58B84A',
+    filterCss: 'brightness(1.04) saturate(1.12)',
+    frameInset: 54, photoRadius: 22, photoGap: 54, photoBorder: { color: '#E8FBE2', width: 6 },
+    plateColor: '#DDF6E6', captionFont: FREDOKA, badgeText: 'KUNG KONG',
+    stickers: ['🐸', '🪷', '🪰', '💚', '🌧️', '🍀'],
+  },
+  {
+    id: 'jajan-pasar', name: 'Jajan Dulu', category: FUNNY, decor: 'snacks',
+    description: 'Donat, es krim, dan meses buat kamu yang lapar terus.',
+    bgColor: '#FFF6E2', inkColor: '#7A3A12', accentColor: '#FF8FB8',
+    filterCss: 'brightness(1.05) saturate(1.2) sepia(0.04)',
+    frameInset: 54, photoRadius: 18, photoBorder: { color: '#FFFFFF', width: 7 },
+    plateColor: '#FFFFFF', captionFont: FREDOKA, badgeText: 'DIET MULAI BESOK',
+    stickers: ['🍩', '🍦', '🍕', '🍟', '🧃', '🍪'],
+  },
+
+  // Karakter & Komik
+  {
+    id: 'ninja-bayangan', name: 'Ninja Bayangan', category: 'Karakter & Komik', decor: 'ninja',
+    description: 'Hitam dengan sabetan merah dan shuriken di tiap foto.',
+    bgColor: '#17171C', inkColor: '#FFFFFF', accentColor: '#C8102E',
+    filterCss: 'contrast(1.16) saturate(0.9) brightness(0.98)',
+    frameInset: 48, photoBorder: { color: '#C8102E', width: 4 },
+    plateColor: 'rgba(0,0,0,0.76)', captionFont: BANGERS, badgeText: 'MISI RAHASIA',
+    stickers: ['🥷', '🗡️', '💨', '🔥', '🌑', '🐉'],
+  },
+  {
+    id: 'penyihir-kecil', name: 'Penyihir Kecil', category: 'Karakter & Komik', decor: 'wizard',
+    description: 'Topi penyihir, bulan sabit, dan langit ungu bertabur bintang.',
+    bgColor: '#2F1C75', inkColor: '#FFF4C2', accentColor: '#FFD65C',
+    filterCss: 'contrast(1.08) saturate(1.14) hue-rotate(-8deg)',
+    frameInset: 50, photoRadius: 14, photoBorder: { color: '#FFD65C', width: 4 },
+    plateColor: 'rgba(27,17,71,0.82)', captionFont: BANGERS, badgeText: 'ABRAKADABRA',
+    stickers: ['🧙', '🪄', '🌙', '🔮', '⭐', '🦉'],
+  },
+
+  // Indonesia
+  {
+    id: 'batik-parang', name: 'Batik Parang', category: 'Indonesia', decor: 'parang',
+    description: 'Motif parang diagonal cokelat tua di atas kain gading.',
+    bgColor: '#EADFC6', inkColor: '#3D2210', accentColor: '#8A5A2B',
+    filterCss: 'sepia(0.12) contrast(1.05)',
+    frameInset: 50, photoBorder: { color: '#4A2A14', width: 5 },
+    plateColor: '#EADFC6', badgeText: 'BATIK PARANG',
+    stickers: ['🌺', '🪷', '🎎', '🥁', '🌾', '✨'],
+  },
+  {
+    id: 'lebaran', name: 'Lebaran', category: 'Indonesia', decor: 'lebaran',
+    description: 'Hijau dan emas dengan bulan sabit, bintang, dan ketupat.',
+    bgColor: '#0D5C46', inkColor: '#F7E9B0', accentColor: '#E8D27A',
+    filterCss: 'brightness(1.04) saturate(1.06) sepia(0.06)',
+    frameInset: 52, photoShape: 'arch', photoGap: 24, photoBorder: { color: '#E8D27A', width: 4 },
+    plateColor: 'rgba(7,64,47,0.9)', captionFont: PACIFICO, badgeText: 'MOHON MAAF LAHIR BATIN',
+    stickers: ['🌙', '⭐', '🕌', '🤲', '🍘', '✨'],
+  },
+  {
+    id: 'imlek', name: 'Imlek', category: 'Indonesia', decor: 'imlek',
+    description: 'Merah dan emas dengan lampion dan motif awan bergelombang.',
+    bgColor: '#B81220', inkColor: '#FFE9A8', accentColor: '#F7C948',
+    filterCss: 'brightness(1.04) saturate(1.14) contrast(1.03)',
+    frameInset: 52, photoRadius: 12, photoGap: 30, photoBorder: { color: '#F7C948', width: 4 },
+    plateColor: 'rgba(120,8,18,0.88)', captionFont: PACIFICO, badgeText: 'GONG XI FA CAI',
+    stickers: ['🧧', '🏮', '🐉', '🍊', '🪙', '🎆'],
+  },
+
+  // Pesta
+  {
+    id: 'wisuda', name: 'Wisuda', category: 'Pesta', decor: 'graduation',
+    description: 'Biru tua dan emas dengan toga, untuk hari kelulusan.',
+    bgColor: '#16244F', inkColor: '#F7E2A0', accentColor: '#F2C94C',
+    filterCss: 'contrast(1.06) brightness(1.03) saturate(1.04)',
+    frameInset: 54, photoRadius: 8, photoBorder: { color: '#F2C94C', width: 4 },
+    plateColor: 'rgba(14,27,61,0.9)', badgeText: 'CLASS OF 2026',
+    stickers: ['🎓', '📜', '🏅', '👏', '💐', '⭐'],
+  },
+  {
+    id: 'natal', name: 'Natal', category: 'Pesta', decor: 'christmas',
+    description: 'Merah dengan salju turun dan daun holly di setiap foto.',
+    bgColor: '#B5162B', inkColor: '#FFFFFF', accentColor: '#1F8A4C',
+    filterCss: 'brightness(1.04) saturate(1.12) contrast(1.02)',
+    frameInset: 52, photoRadius: 12, photoGap: 30, photoBorder: { color: '#FFFFFF', width: 6 },
+    plateColor: '#1F7A45', captionFont: PACIFICO, badgeText: 'MERRY CHRISTMAS',
+    stickers: ['🎄', '🎅', '⛄', '🎁', '🔔', '❄️'],
+  },
+  {
+    id: 'kembang-api', name: 'Kembang Api', category: 'Pesta', decor: 'fireworks',
+    description: 'Langit malam penuh kembang api untuk malam tahun baru.',
+    bgColor: '#0B0B2C', inkColor: '#FFFFFF', accentColor: '#FFD65C',
+    filterCss: 'contrast(1.12) saturate(1.2) brightness(1.03)',
+    frameInset: 50, photoRadius: 10, photoBorder: { color: '#FFD65C', width: 3 },
+    plateColor: 'rgba(11,11,44,0.82)', captionFont: PACIFICO, badgeText: 'HAPPY NEW YEAR',
+    stickers: ['🎆', '🎇', '🥂', '🎉', '🕛', '✨'],
+  },
+  {
+    id: 'halloween', name: 'Halloween', category: 'Pesta', decor: 'halloween',
+    description: 'Labu menyeringai dan kelelawar di langit ungu.',
+    bgColor: '#2A1046', inkColor: '#FFB25C', accentColor: '#F27A1A',
+    filterCss: 'contrast(1.14) saturate(1.06) hue-rotate(-6deg)',
+    frameInset: 52, photoRadius: 10, photoBorder: { color: '#F27A1A', width: 4 },
+    plateColor: 'rgba(20,8,31,0.84)', captionFont: BANGERS, badgeText: 'TRICK OR TREAT',
+    stickers: ['🎃', '🦇', '👻', '🕸️', '🍬', '🧛'],
+  },
+
+  // Game & Retro
+  {
+    id: 'konsol-saku', name: 'Konsol Saku', category: 'Game & Retro', decor: 'handheld',
+    description: 'Badan abu-abu dan tombol ungu seperti konsol game saku lawas.',
+    bgColor: '#C9C8BE', inkColor: '#2B2B33', accentColor: '#A3195B',
+    filterCss: 'grayscale(0.72) sepia(0.5) hue-rotate(38deg) contrast(1.16) brightness(1.02)',
+    frameInset: 50, photoBorder: { color: '#2B2B33', width: 3 },
+    captionFont: '20px "Press Start 2P"', badgeText: 'HOLD START',
+    stickers: ['🎮', '🔋', '👾', '🕹️', '🪙', '💾'],
+  },
+  {
+    id: 'disko', name: 'Disko', category: 'Game & Retro', decor: 'disco',
+    description: 'Bola disko dan sinar warna-warni dari atas.',
+    bgColor: '#1A0B3B', inkColor: '#FFFFFF', accentColor: '#FF3FA4',
+    filterCss: 'contrast(1.14) saturate(1.34)',
+    frameInset: 50, photoRadius: 12, photoBorder: { color: '#FFFFFF', width: 4 },
+    plateColor: 'rgba(26,11,59,0.84)', captionFont: PACIFICO, badgeText: 'SATURDAY NIGHT',
+    stickers: ['🪩', '🕺', '💃', '🎵', '✨', '🎶'],
+  },
+
+  // Alam
+  {
+    id: 'sakura', name: 'Sakura', category: 'Alam', decor: 'sakura',
+    description: 'Dahan sakura di atas foto dan kelopak yang berjatuhan.',
+    bgColor: '#FFE3EC', inkColor: '#8A2A4F', accentColor: '#FFA8C4',
+    filterCss: 'brightness(1.07) saturate(1.06) contrast(0.98)',
+    frameInset: 52, photoRadius: 14, photoBorder: { color: '#FFFFFF', width: 6 },
+    plateColor: '#FFF5F8', badgeText: 'SPRING IN BLOOM',
+    stickers: ['🌸', '🍡', '🍃', '🗻', '🎐', '💮'],
+  },
+  {
+    id: 'pantai', name: 'Pantai', category: 'Alam', decor: 'beach',
+    description: 'Laut biru, pasir, bintang laut, dan kerang di sudut foto.',
+    bgColor: '#A8ECE8', inkColor: '#0B4F63', accentColor: '#FF8A5B',
+    filterCss: 'brightness(1.07) saturate(1.2) contrast(1.02)',
+    frameInset: 52, photoRadius: 20, photoBorder: { color: '#FFFFFF', width: 6 },
+    plateColor: 'rgba(255,255,255,0.74)', captionFont: PACIFICO, badgeText: 'SALT AND SUN',
+    stickers: ['🏖️', '🐚', '🌊', '🕶️', '🍹', '⛱️'],
+  },
+
+  // Scrapbook
+  {
+    id: 'buku-catatan', name: 'Buku Catatan', category: 'Scrapbook', decor: 'notebook',
+    description: 'Kertas bergaris dengan spiral, seperti halaman buku sekolah.',
+    bgColor: '#FFFEF6', inkColor: '#27427A', accentColor: '#F29AA4',
+    filterCss: 'brightness(1.04) contrast(1.02) saturate(1.04)',
+    frameInset: 58, photoRadius: 4, photoBorder: { color: '#27427A', width: 2 },
+    captionFont: CAVEAT, badgeText: 'CATATAN KELAS',
+    stickers: ['📓', '✏️', '📐', '🍎', '🏫', '✅'],
+  },
+  {
+    id: 'surat-cinta', name: 'Surat Cinta', category: 'Scrapbook', decor: 'loveLetter',
+    description: 'Amplop pos merah biru dengan prangko dan segel lilin.',
+    bgColor: '#F4DCC6', inkColor: '#7A1F2B', accentColor: '#D7263D',
+    filterCss: 'sepia(0.16) brightness(1.04) saturate(1.08)',
+    frameInset: 50, photoRadius: 4, photoGap: 34, photoBorder: { color: '#FFFEF6', width: 8 },
+    plateColor: '#FFF4E6', captionFont: CAVEAT, badgeText: 'DARI AKU, BUAT KAMU',
+    stickers: ['💌', '💘', '✉️', '📮', '🌹', '🖋️'],
+  },
+
+  // Film & Korea
+  {
+    id: 'kafe-seoul', name: 'Kafe Seoul', category: 'Film & Korea', decor: 'seoulCafe',
+    description: 'Krem polos dengan garis tipis, seperti strip dari kafe Seoul.',
+    bgColor: '#EFE6D8', inkColor: '#4E4032', accentColor: '#7B6A58',
+    filterCss: 'brightness(1.05) contrast(0.96) saturate(0.92) sepia(0.08)',
+    frameInset: 44, photoRadius: 2, dateStamp: true,
+    captionFont: CAVEAT, badgeText: '오늘의 기록',
+    stickers: ['☕', '🥐', '🤍', '📸', '🫶', '🧸'],
+  },
+];
+
+export const EXTRA_THEMES: ThemeDefinition[] = themes.map((theme) => ({
+  frameStyle: 'modern',
+  ...theme,
+}));

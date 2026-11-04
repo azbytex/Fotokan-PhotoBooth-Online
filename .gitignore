@@ -1,0 +1,21 @@
+# Dependensi
+node_modules/
+
+# Hasil build
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Variabel lingkungan
+.env
+.env.*
+!.env.example
+
+# Backup lokal
+*.zip
+
+# Log dan file sistem
+npm-debug.log*
+.DS_Store
+Thumbs.db
