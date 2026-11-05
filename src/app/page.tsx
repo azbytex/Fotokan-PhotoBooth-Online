@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
 import Doodle from '@/components/layout/Doodle';
@@ -270,7 +270,24 @@ function FilterWipe() {
   );
 }
 
+const DUO_NAMES = ['Nadia', 'Raka', 'Sinta', 'Dimas', 'Tiara', 'Fajar', 'Ayu', 'Bagas'];
+const DUO_CITIES = ['Jakarta', 'Surabaya', 'Yogyakarta', 'Makassar', 'Denpasar', 'Semarang', 'Malang', 'Palembang'];
+
+function pickTwo(items: string[]) {
+  const first = Math.floor(Math.random() * items.length);
+  const second = (first + 1 + Math.floor(Math.random() * (items.length - 1))) % items.length;
+  return [items[first], items[second]];
+}
+
 function DuoStory() {
+  // Diacak setelah halaman terpasang, supaya hasil server dan browser tetap sama.
+  const [labels, setLabels] = useState<string[] | null>(null);
+  useEffect(() => {
+    const names = pickTwo(DUO_NAMES);
+    const cities = pickTwo(DUO_CITIES);
+    setLabels([`${names[0]}, ${cities[0]}`, `${names[1]}, ${cities[1]}`]);
+  }, []);
+
   const theme = getThemeById('hati-bubblegum');
   return (
     <section className="ink-panel relative overflow-hidden">
@@ -288,13 +305,13 @@ function DuoStory() {
 
         <div className="flex items-center justify-center">
           <Motion keys={[[0.1, { x: -300, r: -14, y: 70 }], [0.52, { x: 0, r: -2, y: 0 }]]} className="w-[38%] max-w-[220px]">
-            <p className="mb-3 text-center text-sm font-semibold">Azka, Bandung</p>
+            <p className="mb-3 text-center text-sm font-semibold">{labels?.[0] ?? ' '}</p>
             <div className="overflow-hidden rounded-[3px]">
               <StripPreview theme={theme} offset={0} />
             </div>
           </Motion>
           <Motion keys={[[0.1, { x: 300, r: 14, y: -70 }], [0.52, { x: 0, r: 2, y: 0 }]]} className="-ml-1 w-[38%] max-w-[220px]">
-            <p className="mb-3 text-center text-sm font-semibold">???, Medan</p>
+            <p className="mb-3 text-center text-sm font-semibold">{labels?.[1] ?? ' '}</p>
             <div className="overflow-hidden rounded-[3px]">
               <StripPreview theme={theme} offset={3} />
             </div>
