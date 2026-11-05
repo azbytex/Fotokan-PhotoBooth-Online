@@ -50,8 +50,8 @@ function requestStrip(theme: ThemeDefinition, layout: LayoutType, offset: number
         layout,
         shots: sampleShots(offset),
         peerShots: layout.startsWith('duo-') ? sampleShots(offset + 3) : [],
-        hostName: 'Rani',
-        peerName: 'Bimo',
+        hostName: 'Kamu',
+        peerName: 'Teman',
         scale,
       });
       await new Promise<void>((done) => {
